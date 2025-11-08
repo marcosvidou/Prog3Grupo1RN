@@ -74,22 +74,56 @@ class Register extends Component {
 export default Register;
 
 const styles = StyleSheet.create({
-    container: { padding: 16 },
-    title: { fontSize: 24, fontWeight: "600", marginBottom: 12 },
+    container: {
+      flex: 1,
+      backgroundColor: "#f2f2f2",
+      padding: 20,
+      justifyContent: "center",
+    },
+  
+    title: {
+      fontSize: 26,
+      fontWeight: "700",
+      marginBottom: 20,
+      textAlign: "center",
+      color: "#333",
+    },
+  
     field: {
-    borderWidth: 1, borderColor: "#ccc", borderRadius: 6,
-    padding: 10, marginBottom: 10,
+      backgroundColor: "#ffffff",
+      borderWidth: 2,             
+      borderColor: "#bcd4f6",      
+      borderRadius: 10,            
+      paddingVertical: 12,
+      paddingHorizontal: 16,
+      fontSize: 16,
+      marginBottom: 14,
     },
+  
     btnPrimary: {
-    backgroundColor: "#2e86de", padding: 12, borderRadius: 6, marginTop: 6,
-    alignItems: "center",
+      backgroundColor: "#2e86de",  
+      paddingVertical: 14,
+      borderRadius: 10,
+      marginTop: 12,
+      alignItems: "center",
+     borderWidth: 2,
+      borderColor: "#1b4f72",
     },
-    btnText: { color: "white", fontWeight: "600" },
-    preview: {
-    marginTop: 16, padding: 12, backgroundColor: "#f4f6f7", borderRadius: 6,
+  
+    btnText: {
+      color: "#fff",
+      fontWeight: "600",
+      fontSize: 16,
     },
-    previewTitle: { fontWeight: "700", marginBottom: 6 },
-    linkBtn: { marginTop: 12, alignItems: "center", },
-    linkText: { color: "#2e86de", textDecorationLine: "underline",},
-
-});
+  
+    linkBtn: {
+      marginTop: 18,
+      alignItems: "center",
+    },
+  
+    linkText: {
+      color: "#2e86de",
+      textDecorationLine: "underline",
+      fontSize: 14,
+    },
+  });

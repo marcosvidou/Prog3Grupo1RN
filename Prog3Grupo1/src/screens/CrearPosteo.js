@@ -49,7 +49,7 @@ export default class CrearPosteo extends Component {
             value={this.state.texto}
             onChangeText={(text) => this.setState({ texto: text })}
             />
-            <Button title="Publicar" onPress={() => this.crearPost()} />
+            <Button title="Publicar" onPress={() => this.CrearPosteo()} />
             <Text style={styles.mensaje}>{this.state.mensaje}</Text>
         </View>
         );
@@ -57,30 +57,47 @@ export default class CrearPosteo extends Component {
     }
 
     const styles = StyleSheet.create({
-   container: {
-     flex: 1,
-     padding: 20,
-     justifyContent: 'center',
-     backgroundColor: '#f2f2f2',
-   },
-   titulo: {
-     fontSize: 20,
-     textAlign: 'center',
-     marginBottom: 20,
-   },
-   input: {
-     borderColor: 'gray',
-     borderWidth: 1,
-     borderRadius: 10,
-     padding: 10,
-     marginBottom: 15,
-     height: 100,
-     backgroundColor: '#fff',
-     textAlignVertical: 'top',
-   },
-   mensaje: {
-     marginTop: 15,
-     textAlign: 'center',
-     color: '#333',
-   },
-    });
+        container: {
+          flex: 1,
+          padding: 20,
+          backgroundColor: '#fff0f5', 
+          justifyContent: 'center',
+        },
+        titulo: {
+          fontSize: 26,
+          fontWeight: 'bold',
+          textAlign: 'center',
+          marginBottom: 25,
+          color: '#b30059', 
+        },
+        input: {
+          borderColor: '#ff66a3', 
+          borderWidth: 2,
+          borderRadius: 10,
+          padding: 10,
+          marginBottom: 20,
+          height: 100,
+          fontSize: 16,
+          backgroundColor: '#ffffff',
+          textAlignVertical: 'top',
+          color: '#000',
+        },
+        mensaje: {
+          marginTop: 10,
+          textAlign: 'center',
+          color: '#009933', 
+          fontWeight: 'bold',
+          fontSize: 16,
+        },
+        boton: {
+          backgroundColor: '#ff3399', 
+          padding: 12,
+          borderRadius: 10,
+          alignItems: 'center',
+        },
+        textoBoton: {
+          color: '#fff',
+          fontSize: 16,
+          fontWeight: 'bold',
+        }
+      });

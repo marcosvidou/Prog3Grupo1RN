@@ -62,11 +62,11 @@ export default class Home extends Component {
                             <Text>Likes: {item.data.likes.length}</Text>
                             {item.data.likes.includes(auth.currentUser.email)? (
                                 <Pressable onPress={()=> this.unlikePost(item.id)}>
-                                    <Text style={styles.unlike}>unlike</Text>
+                                    <Text style={styles.unlike}> 💔 unlike</Text>
                                 </Pressable>
                             ): (
                                 <Pressable onPress={()=> this.likePost(item.id)}>
-                                    <Text style={styles.like}>like</Text>
+                                    <Text style={styles.like}> ❤️ like</Text>
                                 </Pressable>
                             )}
                             <Pressable
@@ -87,37 +87,48 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#fef6f9',
         padding: 20,
     },
     title: {
-        fontSize: 24,
+        fontSize: 28,
         marginBottom: 20,
         fontWeight: 'bold',
-        color: '#222',
-        textAlign: 'center'
+        color: '#d6336c',
+        textAlign: 'center',
+        paddingBottom: 10,
     },
     post: {
-        borderWidth: 1,
-        borderColor: '#ddd',
+        backgroundColor: '#fff',
+        borderColor: '#d6336c',
+        borderWidth: 2,
         borderRadius: 10,
         padding: 15,
-        marginBottom: 15
+        marginBottom: 15,
     },
     user: {
         fontWeight: 'bold',
-        marginBottom: 5
+        marginBottom: 5,
+        color: '#333'
+    },
+    text: {
+        fontSize: 16,
+        marginBottom: 5,
+        color: '#444'
     },
     like: {
-        color: 'green',
-        marginTop: 5
+        color: '#28a745',
+        marginTop: 5,
+        fontWeight: 'bold',
     },
     unlike: {
-        color: 'red',
-        marginTop: 5
+        color: '#dc3545',
+        marginTop: 5,
+        fontWeight: 'bold',
     },
     comment: {
-        color: 'blue',
-        marginTop: 10
+        color: '#007bff',
+        marginTop: 10,
+        fontWeight: '600',
     }
 });

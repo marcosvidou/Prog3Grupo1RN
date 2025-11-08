@@ -44,8 +44,8 @@ export default class Profile extends Component {
                     <View style={styles.container}>
                         {this.state.loadingPosteos ? <Text>Cargando... </Text> :  <>
                         <Text style={styles.title}>Profile</Text>
-                        <Text style={styles.title}>{this.state.usuario.email}</Text>
-                        <Text style={styles.title}>{this.state.usuario.userName}</Text>
+                        <Text style={styles.email}>{this.state.usuario.email}</Text>
+                        <Text style={styles.username}>{this.state.usuario.userName}</Text>
                         <Pressable
                             style={styles.btn}
                             onPress={() => this.logout()}
@@ -61,8 +61,46 @@ export default class Profile extends Component {
 
 
 const styles = StyleSheet.create({
-    container: { flex: 1, justifyContent: "center", alignItems: "center", padding: 16 },
-    title: { fontSize: 22, marginBottom: 16 },
-    btn: { padding: 10, backgroundColor: "#eee", borderRadius: 6 },
-    btnText: { fontWeight: "600" },
-});
+    container: {
+      flex: 1,
+      backgroundColor: '#f8f8f8',
+      paddingHorizontal: 24,
+      paddingTop: 50,
+    },
+    title: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: '#333',
+      textAlign: 'center',
+      marginBottom: 8,
+    },
+    email: {
+      fontSize: 16,
+      color: '#555',
+      textAlign: 'center',
+      marginBottom: 4,
+    },
+    username: {
+      fontSize: 18,
+      color: '#111',
+      fontWeight: '600',
+      textAlign: 'center',
+      marginBottom: 16,
+    },
+    btn: {
+      backgroundColor: '#222',
+      paddingVertical: 10,
+      paddingHorizontal: 16,
+      borderRadius: 8,
+      alignSelf: 'center',
+      marginBottom: 24,
+    },
+    btnText: {
+      color: '#fff',
+      fontSize: 16,
+      fontWeight: '500',
+    },
+    postList: {
+      paddingBottom: 100,
+    }
+  });

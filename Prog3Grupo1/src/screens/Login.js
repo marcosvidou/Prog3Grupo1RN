@@ -60,19 +60,49 @@ class Login extends Component {
 export default Login;
 
 const styles = StyleSheet.create({
-    container: { padding: 16 },
-    title: { fontSize: 24, fontWeight: "600", marginBottom: 12 },
+    container: {
+      flex: 1,
+      padding: 20,
+      backgroundColor: "#f2f2f2",
+      justifyContent: "center",
+    },
+    title: {
+      fontSize: 28,
+      fontWeight: "bold",
+      textAlign: "center",
+      marginBottom: 24,
+      color: "#333",
+    },
     field: {
-    borderWidth: 1, borderColor: "#ccc", borderRadius: 6,
-    padding: 10, marginBottom: 10,
+      backgroundColor: "#fff",
+      borderWidth: 1,
+      borderColor: "#ccc",
+      borderRadius: 10,
+      padding: 14,
+      fontSize: 16,
+      marginBottom: 18,
     },
     btnPrimary: {
-    backgroundColor: "#f39c12", padding: 12, borderRadius: 6, marginTop: 6,
-    alignItems: "center",
+      backgroundColor: "#f39c12",
+      paddingVertical: 14,
+      borderRadius: 10,
+      alignItems: "center",
+      marginTop: 8,
+      borderWidth: 1,
+      borderColor: "#e67e22",
     },
-    btnText: { color: "white", fontWeight: "600" },
-    preview: {
-    marginTop: 16, padding: 12, backgroundColor: "#f4f6f7", borderRadius: 6,
+    btnText: {
+      color: "#fff",
+      fontSize: 16,
+      fontWeight: "600",
     },
-    previewTitle: { fontWeight: "700", marginBottom: 6 },linkText: { color: "#2e86de", textDecorationLine: "underline",},
-});
+    linkBtn: {
+      marginTop: 12,
+      alignItems: "center",
+    },
+    linkText: {
+      color: "#3498db",
+      textDecorationLine: "underline",
+      fontSize: 14,
+    },
+  });
