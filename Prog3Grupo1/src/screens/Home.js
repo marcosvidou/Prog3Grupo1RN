@@ -71,7 +71,7 @@ export default class Home extends Component {
                             )}
                             <Pressable
                                 onPress={() =>
-                                    this.props.navigation.navigate('CrearPosteo', { id: item.id })
+                                    this.props.navigation.navigate('AddComment', { id: item.id })
                                 }>
                                 <Text style={styles.comment}>Comentar</Text>
                             </Pressable>

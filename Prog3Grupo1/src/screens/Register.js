@@ -25,11 +25,11 @@ class Register extends Component {
             this.setState({ check: 'Ingrese un mail valido' });
             return;
         }
-        if (this.state.password.length < 6) {
+                if (this.state.password.length < 6) {
             this.setState({ check: 'La contraseña debe tener al menos 6 caracteres' });
             return;
         }
-        if (this.state.username === '') {
+        if (this.state.userName === '') {
             this.setState({ check: 'Ingrese un nombre de usuario' });
             return;
         }
@@ -50,6 +50,7 @@ class Register extends Component {
             this.props.navigation.navigate("Login");
         })
         .catch((error) => {
+            this.setState({ check: error.message });
             console.log("ERROR REGISTRO o GUARDADO:", error.message);
         });
     };
@@ -86,7 +87,7 @@ class Register extends Component {
         <Pressable style={styles.linkBtn} onPress={() => this.props.navigation.navigate("Login")}>
             <Text style={styles.linkText}>¿Ya tenés cuenta? Ir a Login</Text>
         </Pressable>
-        {this.state.error !== "" ?
+        {this.state.check !== "" ?
         <Text >{this.state.check}</Text>
             : null}
         </View>
