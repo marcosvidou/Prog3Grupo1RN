@@ -82,22 +82,21 @@ class AddComment extends Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: "#F2F4F7",
+      backgroundColor: "#FFF8F1", 
       padding: 20,
     },
   
     card: {
-      backgroundColor: "#ffffff",
+      backgroundColor: "#FFFCF8",
       padding: 16,
       borderRadius: 12,
       borderWidth: 1,
-      borderColor: "#E0E6EF",
+      borderColor: "#E3CBB5",
       marginBottom: 12,
   
-    
       shadowColor: "#000",
       shadowOffset: { width: 0, height: 3 },
-      shadowOpacity: 0.1,
+      shadowOpacity: 0.08,
       shadowRadius: 4,
       elevation: 3,
     },
@@ -105,20 +104,20 @@ const styles = StyleSheet.create({
     author: {
       fontWeight: "600",
       fontSize: 16,
-      color: "#2E3A59",
+      color: "#5C452B", 
       marginBottom: 6,
     },
   
     text: {
       fontSize: 15,
-      color: "#394B61",
+      color: "#6B4F3B", 
       lineHeight: 20,
     },
   
     field: {
       borderWidth: 1,
-      borderColor: "#D6DEEB",
-      backgroundColor: "#ffffff",
+      borderColor: "#D8BBA5",
+      backgroundColor: "#FFFAF5",
       borderRadius: 12,
       paddingVertical: 12,
       paddingHorizontal: 15,
@@ -126,30 +125,27 @@ const styles = StyleSheet.create({
       marginTop: 8,
       marginBottom: 12,
   
-      
       shadowColor: "#000",
-      shadowOpacity: 0.07,
+      shadowOpacity: 0.05,
       shadowRadius: 3,
       elevation: 2,
     },
   
     button: {
-      backgroundColor: "#3777F0",
+      backgroundColor: "#B16A4B", 
       paddingVertical: 14,
       borderRadius: 12,
       alignItems: "center",
   
-     
       cursor: "pointer",
     },
   
     buttonText: {
-      color: "#ffffff",
+      color: "#fffaf0",
       fontWeight: "700",
       fontSize: 16,
       textTransform: "uppercase",
       letterSpacing: 0.5,
     },
   });
-
 export default AddComment;

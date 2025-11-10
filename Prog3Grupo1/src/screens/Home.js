@@ -8,19 +8,15 @@ export default class Home extends Component {
         super(props);
         this.state = {
             posts: [],
-            loader : true
+            loader: true
         };
     }
 
     componentDidMount() {
-        auth.onAuthStateChanged(user => {
-            if (!user) {
-                this.props.navigation.navigate('Login')
-            } else {
-                db.collection('posts')
-                .orderBy('createdAt', 'desc')
-                .onSnapshot(
-                    docs =>{
+        db.collection('posts')
+            .orderBy('createdAt', 'desc')
+            .onSnapshot(
+                docs => {
                     let posts = [];
                     docs.forEach(doc => {
                         posts.push({
@@ -28,24 +24,22 @@ export default class Home extends Component {
                             data: doc.data()
                         });
                     });
-                    this.setState({ posts, loader : false });
+                    this.setState({ posts, loader: false });
                 });
-            }
-        });
     }
     likePost(id) {
         db.collection('posts')
-        .doc(id)
-        .update({
-            likes: firebase.firestore.FieldValue.arrayUnion(auth.currentUser.email)
-        });
+            .doc(id)
+            .update({
+                likes: firebase.firestore.FieldValue.arrayUnion(auth.currentUser.email)
+            });
     }
     unlikePost(id) {
         db.collection('posts')
-        .doc(id)
-        .update({
-            likes: firebase.firestore.FieldValue.arrayRemove(auth.currentUser.email)
-        });
+            .doc(id)
+            .update({
+                likes: firebase.firestore.FieldValue.arrayRemove(auth.currentUser.email)
+            });
     }
     render() {
         return (
@@ -56,25 +50,25 @@ export default class Home extends Component {
                     keyExtractor={item => item.id}
                     renderItem={({ item }) =>
                         <View style={styles.post}>
-                            {this.state.loading ? <Text>Cargando... </Text> :  <>
-                            <Text style={styles.user}>Usuario: {item.data.owner}</Text>
-                            <Text style={styles.text}>{item.data.texto}</Text>
-                            <Text>Likes: {item.data.likes.length}</Text>
-                            {item.data.likes.includes(auth.currentUser.email)? (
-                                <Pressable onPress={()=> this.unlikePost(item.id)}>
-                                    <Text style={styles.unlike}> 💔 unlike</Text>
+                            {this.state.loading ? <Text>Cargando... </Text> : <>
+                                <Text style={styles.user}>Usuario: {item.data.owner}</Text>
+                                <Text style={styles.text}>{item.data.texto}</Text>
+                                <Text>Likes: {item.data.likes.length}</Text>
+                                {item.data.likes.includes(auth.currentUser.email) ? (
+                                    <Pressable onPress={() => this.unlikePost(item.id)}>
+                                        <Text style={styles.unlike}> 💔 unlike</Text>
+                                    </Pressable>
+                                ) : (
+                                    <Pressable onPress={() => this.likePost(item.id)}>
+                                        <Text style={styles.like}> ❤️ like</Text>
+                                    </Pressable>
+                                )}
+                                <Pressable
+                                    onPress={() =>
+                                        this.props.navigation.navigate('AddComment', { id: item.id })
+                                    }>
+                                    <Text style={styles.comment}>Comentar</Text>
                                 </Pressable>
-                            ): (
-                                <Pressable onPress={()=> this.likePost(item.id)}>
-                                    <Text style={styles.like}> ❤️ like</Text>
-                                </Pressable>
-                            )}
-                            <Pressable
-                                onPress={() =>
-                                    this.props.navigation.navigate('AddComment', { id: item.id })
-                                }>
-                                <Text style={styles.comment}>Comentar</Text>
-                            </Pressable>
                             </>}
                         </View>
                     }

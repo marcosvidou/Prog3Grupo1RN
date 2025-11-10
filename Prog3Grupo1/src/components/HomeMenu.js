@@ -4,7 +4,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 
-import Home from "../screens/Home";
+import StackNavegation from "./StackNavegation";
 import Profile from "../screens/Profile";
 
 import CrearPosteo from "../screens/CrearPosteo";
@@ -14,8 +14,8 @@ const Tab = createBottomTabNavigator();
 export default function HomeMenu() {
     return (
     <Tab.Navigator screenOptions={{ tabBarShowLabel: false }}>
-        <Tab.Screen name="Home" 
-        component={Home} 
+        <Tab.Screen name="StackNavegation" 
+        component={StackNavegation} 
         options={{tabBarIcon: () =>
         <AntDesign name="apple" size={24} color="black" />}
         }/>

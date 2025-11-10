@@ -12,32 +12,10 @@ class Register extends Component {
         check: "",
     };
     }
-    componentDidMount(){
-        auth.onAuthStateChanged(user => {
-            if (user != null){
-                this.props.navigation.navigate("StackNavegation");
-            }
-        })
-    }
-
-    onSubmit() {
-        if (!this.state.email.includes('@')) {
-            this.setState({ check: 'Ingrese un mail valido' });
-            return;
-        }
-                if (this.state.password.length < 6) {
-            this.setState({ check: 'La contraseña debe tener al menos 6 caracteres' });
-            return;
-        }
-        if (this.state.userName === '') {
-            this.setState({ check: 'Ingrese un nombre de usuario' });
-            return;
-        }
-        this.register(this.state.email, this.state.userName, this.state.password);
-    }
 
     register(email, userName, password){
         
+        this.setState({ check: 'Procesando registro...' });
         auth.createUserWithEmailAndPassword(email, password)
         .then(() => {
             return db.collection('users').add({
@@ -47,7 +25,9 @@ class Register extends Component {
             });
         })
         .then(() => {
-            this.props.navigation.navigate("Login");
+             auth.signOut().then(() => this.props.navigation.navigate("Login")) 
+        })
+        .then(() => {
         })
         .catch((error) => {
             this.setState({ check: error.message });
