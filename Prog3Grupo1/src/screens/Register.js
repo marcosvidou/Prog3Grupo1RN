@@ -41,9 +41,7 @@ class Register extends Component {
             });
         })
         .then(() => {
-             auth.signOut().then(() => this.props.navigation.navigate("Login")) 
-        })
-        .then(() => {
+            auth.signOut().then(() => this.props.navigation.navigate("Login")) 
         })
         .catch((error) => {
             this.setState({ check: error.message });

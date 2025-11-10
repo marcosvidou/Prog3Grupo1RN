@@ -18,7 +18,8 @@ export default function HomeMenu() {
         component={StackNavegation} 
         options={{tabBarIcon: () =>
         <AntDesign name="apple" size={24} color="black" />}
-        }/>
+        }
+        />
         <Tab.Screen name="CrearPosteo" 
         component={CrearPosteo} 
         options={{tabBarIcon: () =>
