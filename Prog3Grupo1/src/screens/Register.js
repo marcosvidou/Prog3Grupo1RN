@@ -9,6 +9,7 @@ class Register extends Component {
         email: "",
         userName: "",
         password: "",
+        check: "",
     };
     }
     componentDidMount(){
@@ -18,7 +19,25 @@ class Register extends Component {
             }
         })
     }
-    onSubmit(email, userName, password){
+
+    onSubmit() {
+        if (!this.state.email.includes('@')) {
+            this.setState({ check: 'Ingrese un mail valido' });
+            return;
+        }
+        if (this.state.password.length < 6) {
+            this.setState({ check: 'La contraseña debe tener al menos 6 caracteres' });
+            return;
+        }
+        if (this.state.username === '') {
+            this.setState({ check: 'Ingrese un nombre de usuario' });
+            return;
+        }
+        this.register(this.state.email, this.state.userName, this.state.password);
+    }
+
+    register(email, userName, password){
+        
         auth.createUserWithEmailAndPassword(email, password)
         .then(() => {
             return db.collection('users').add({
@@ -67,6 +86,9 @@ class Register extends Component {
         <Pressable style={styles.linkBtn} onPress={() => this.props.navigation.navigate("Login")}>
             <Text style={styles.linkText}>¿Ya tenés cuenta? Ir a Login</Text>
         </Pressable>
+        {this.state.error !== "" ?
+        <Text >{this.state.check}</Text>
+            : null}
         </View>
     );
     }
