@@ -33,7 +33,7 @@ class AddComment extends Component {
     })
       .then(() => {
         this.setState({ comentario: '' });
-        console.log('Comentario agregado');
+        console.log('Comentario agregado exitosamente');
       })
       .catch(e => console.log(e));
   }
@@ -43,20 +43,20 @@ class AddComment extends Component {
       console.log(this.state.posteo);
       return (
         <View style={styles.container}>
-          <View style={[styles.card, {border: '2px solid gray'}]}>
+          <View style={styles.card}>
             <Text style={styles.author}>{this.state.posteo.owner}</Text>
             <Text style={styles.text}>{this.state.posteo.texto}</Text>
           </View>
           <Text>Comentarios:</Text>
           <FlatList
           data={this.state.posteo.comentarios}
-          keyExtractor={(c, index) => index.toString()}
+          keyExtractor={(i, index) => index.toString()}
           contentContainerStyle={styles.container}
-          renderItem={({ item: c }) => {
+          renderItem={({ item: i }) => {
           return (
         <View style={[styles.card, {margin: 5}]}>
-          <Text style={styles.author}>{c.owner}</Text>
-        <Text style={styles.text}>{c.text}</Text>
+          <Text style={styles.author}>{i.owner}</Text>
+        <Text style={styles.text}>{i.text}</Text>
         </View>
       )
     }}
@@ -64,9 +64,8 @@ class AddComment extends Component {
 
           <TextInput
             style={styles.field}
-            placeholder="Escribe un comentario..."
+            placeholder="Escribí un comentario..."
             multiline={true}
-            numberOfLines={2}
             onChangeText={text => this.setState({ comentario: text })}
             value={this.state.comentario}
           />
